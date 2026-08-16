@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Q10 - Largest Number</title>
+</head>
+<body>
+
+    <h2>Find Largest Number</h2>
+
+    <label>Enter integers:</label>
+    <input type="text" id="numbers" placeholder="e.g. 10, 25, 7, 42">
+    <br><br>
+
+    <button onclick="findLargest()">Find Largest</button>
+
+    <h3 id="result"></h3>
+
+    <script>
+        function findLargest() {
+            let input = document.getElementById("numbers").value;
+
+            let numbers = input.split(",").map(Number);
+
+            let largest = Math.max(...numbers);
+
+            document.getElementById("result").innerHTML =
+                "Largest number: " + largest;
+        }
+    </script>
+
+</body>
+</html>

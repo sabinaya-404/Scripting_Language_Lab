@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+    <h2>Find Larger and Smaller Number</h2>
+
+    <label>First Integer:</label>
+    <input type="number" id="num1">
+    <br><br>
+
+    <label>Second Integer:</label>
+    <input type="number" id="num2">
+    <br><br>
+
+    <button onclick="findNumbers()">Find</button>
+
+    <h3 id="result"></h3>
+
+    <script>
+        function findNumbers() {
+            let num1 = Number(document.getElementById("num1").value);
+            let num2 = Number(document.getElementById("num2").value);
+
+            let larger = Math.max(num1, num2);
+            let smaller = Math.min(num1, num2);
+
+            document.getElementById("result").innerHTML =
+                "Larger number: " + larger + "<br>" +
+                "Smaller number: " + smaller;
+        }
+    </script>
+
+</body>
+</html>
