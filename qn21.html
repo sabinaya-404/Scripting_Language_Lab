@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+  <h3>Find Upcoming Weekend Date (Saturday)</h3>
+  <input type="date" id="inputDate">
+  <button onclick="findWeekend()">Get Weekend Date</button>
+  <div id="result"></div>
+
+  <script>
+    function findWeekend() {
+      var inputVal = document.getElementById("inputDate").value;
+      var d = new Date(inputVal);
+      
+      var day = d.getDay();
+      var distanceToSaturday = 6 - day;
+      d.setDate(d.getDate() + distanceToSaturday);
+      
+      document.getElementById("result").innerText = "Weekend Date (Saturday): " + d.toDateString();
+    }
+  </script>
+</body>
+</html>

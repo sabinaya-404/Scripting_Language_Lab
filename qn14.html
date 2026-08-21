@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+  <h3>Sort Array Items</h3>
+  <input type="text" id="arrayInput" value="3, 8, 7, 6, 5, -4, 3, 2, 1">
+  <button onclick="processSort()">Sort</button>
+  <div id="result"></div>
+
+  <script>
+    function processSort() {
+      var input = document.getElementById("arrayInput").value;
+      var arr = input.split(",");
+      
+      for (var i = 0; i < arr.length; i++) {
+        arr[i] = Number(arr[i]);
+      }
+      
+      arr.sort(function(a, b) {
+        return a - b;
+      });
+      
+      document.getElementById("result").innerText = "Output: " + arr.join(",");
+    }
+  </script>
+</body>
+</html>

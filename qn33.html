@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .calc { width: 200px; border: 2px solid #000; padding: 10px; background-color: #f0f0f0; }
+    #display { width: 100%; height: 30px; font-size: 18px; text-align: right; margin-bottom: 10px; box-sizing: border-box; }
+    .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 5px; }
+    button { padding: 10px; font-size: 16px; background-color: green; color: white; border: none; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <div class="calc">
+    <input type="text" id="display" readonly>
+    <div class="grid">
+      <button onclick="appendVal('1')">1</button>
+      <button onclick="appendVal('2')">2</button>
+      <button onclick="appendVal('3')">3</button>
+      <button onclick="appendVal('/')">/</button>
+      <button onclick="appendVal('4')">4</button>
+      <button onclick="appendVal('5')">5</button>
+      <button onclick="appendVal('6')">6</button>
+      <button onclick="appendVal('*')">*</button>
+      <button onclick="appendVal('7')">7</button>
+      <button onclick="appendVal('8')">8</button>
+      <button onclick="appendVal('9')">9</button>
+      <button onclick="appendVal('-')">-</button>
+      <button onclick="appendVal('0')">0</button>
+      <button onclick="appendVal('.')">.</button>
+      <button onclick="solve()">=</button>
+      <button onclick="appendVal('+')">+</button>
+    </div>
+    <button onclick="clearDisplay()" style="width: 100%; margin-top: 5px; background-color: darkgreen;">C</button>
+  </div>
+
+  <script>
+    var display = document.getElementById("display");
+
+    function appendVal(val) {
+      display.value += val;
+    }
+
+    function clearDisplay() {
+      display.value = "";
+    }
+
+    function solve() {
+      try {
+        display.value = eval(display.value);
+      } catch (e) {
+        display.value = "Error";
+      }
+    }
+  </script>
+</body>
+</html>

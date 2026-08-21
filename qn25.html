@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <h3>Person Account Dashboard</h3>
+  <button onclick="showAccountInfo()">Display Account Info</button>
+  <div id="result"></div>
+
+  <script>
+    var personAccount = {
+      firstName: "Sabinaya",
+      lastName: "Khadka",
+      incomes: [{ amount: 1000, desc: "Salary" }],
+      expenses: [{ amount: 200, desc: "Rent" }],
+      
+      addIncome: function(amount, desc) {
+        this.incomes.push({ amount: amount, desc: desc });
+      },
+      addExpense: function(amount, desc) {
+        this.expenses.push({ amount: amount, desc: desc });
+      },
+      totalIncome: function() {
+        var total = 0;
+        for (var i = 0; i < this.incomes.length; i++) {
+          total += this.incomes[i].amount;
+        }
+        return total;
+      },
+      totalExpense: function() {
+        var total = 0;
+        for (var i = 0; i < this.expenses.length; i++) {
+          total += this.expenses[i].amount;
+        }
+        return total;
+      },
+      accountBalance: function() {
+        return this.totalIncome() - this.totalExpense();
+      },
+      accountInfo: function() {
+        return this.firstName + " " + this.lastName + " - Balance: Rs." + this.accountBalance();
+      }
+    };
+
+    function showAccountInfo() {
+      personAccount.addIncome(500, "Freelance");
+      personAccount.addExpense(100, "Groceries");
+      
+      document.getElementById("result").innerHTML = 
+        "Account Summary: " + personAccount.accountInfo() + "<br>" +
+        "Total Income: Rs." + personAccount.totalIncome() + "<br>" +
+        "Total Expense: Rs." + personAccount.totalExpense();
+    }
+  </script>
+</body>
+</html>

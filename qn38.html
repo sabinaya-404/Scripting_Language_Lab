@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head> 
+  <style>
+    body { font-family: sans-serif; padding: 20px; transition: background 0.3s; }
+    .btn-group { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 20px; }
+    button { padding: 10px 15px; color: white; border: none; cursor: pointer; font-weight: bold; }
+    
+    .bg-btn { background-color: #007bff; }
+    .p-bg-btn { background-color: #ffc107; color: black; }
+    .hide-btn { background-color: #fd7e14; }
+    .show-btn { background-color: #28a745; }
+    .inc-btn { background-color: #6f42c1; }
+    .dec-btn { background-color: #20c997; }
+    .reset-btn { background-color: #dc3545; }
+    .color-btn { background-color: #17a2b8; }
+
+    #targetP { padding: 15px; border: 1px solid #ccc; font-size: 12pt; }
+  </style>
+</head>
+<body>
+
+  <h3>Paragraph Styling Controls</h3>
+
+  <div class="btn-group">
+    <button class="bg-btn" onclick="changeBg()">Change Background</button>
+    <button class="p-bg-btn" onclick="changePBg()">Change Paragraph Background</button>
+    <button class="hide-btn" onclick="hideP()">Hide Paragraph</button>
+    <button class="show-btn" onclick="showP()">Show Paragraph</button>
+    <button class="inc-btn" onclick="incFont()">Increase Font Size by 2pt</button>
+    <button class="dec-btn" onclick="decFont()">Decrease Font Size by 2pt</button>
+    <button class="reset-btn" onclick="resetFont()">Reset Font to 12pt</button>
+    <button class="color-btn" onclick="changeColor()">Change Text Color</button>
+  </div>
+
+  <p id="targetP">This is the sample paragraph text that will be modified by the buttons above.</p>
+
+  <script>
+    var p = document.getElementById("targetP");
+    var currentSize = 12;
+
+    function changeBg() {
+      document.body.style.backgroundColor = document.body.style.backgroundColor === "lightcyan" ? "#ffffff" : "lightcyan";
+    }
+
+    function changePBg() {
+      p.style.backgroundColor = p.style.backgroundColor === "lightyellow" ? "transparent" : "lightyellow";
+    }
+
+    function hideP() {
+      p.style.display = "none";
+    }
+
+    function showP() {
+      p.style.display = "block";
+    }
+
+    function incFont() {
+      currentSize += 2;
+      p.style.fontSize = currentSize + "pt";
+    }
+
+    function decFont() {
+      if (currentSize > 6) {
+        currentSize -= 2;
+        p.style.fontSize = currentSize + "pt";
+      }
+    }
+
+    function resetFont() {
+      currentSize = 12;
+      p.style.fontSize = "12pt";
+    }
+
+    function changeColor() {
+      p.style.color = p.style.color === "blue" ? "black" : "blue";
+    }
+  </script>
+
+</body>
+</html>

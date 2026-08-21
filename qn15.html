@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <h3>Display Color Ranks</h3>
+  <button onclick="showColors()">Display</button>
+  <div id="result"></div>
+
+  <script>
+    function showColors() {
+      var color = ["Blue ", "Green", "Red", "Orange", "Violet", "Indigo", "Yellow "];
+      var o = ["th", "st", "nd", "rd"];
+      var output = "";
+      
+      for (var i = 0; i < color.length; i++) {
+        var pos = i + 1;
+        var suffix = (pos <= 3) ? o[pos] : o[0];
+        output += pos + suffix + " choice is " + color[i] + "<br>";
+      }
+      
+      document.getElementById("result").innerHTML = output;
+    }
+  </script>
+</body>
+</html>

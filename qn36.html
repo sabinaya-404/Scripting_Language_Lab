@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <h3>Cookie Manager</h3>
+
+  Key: <input type="text" id="k"> 
+  Val: <input type="text" id="v">
+  <button onclick="addC()">a. Add</button> | 
+  <button onclick="getC()">b. Read</button> | 
+  <button onclick="delC()">d. Delete</button> | 
+  <button onclick="clearC()">e. Clear All</button>
+
+  <p id="out"></p>
+  <h4>c. All Cookies</h4>
+  <div id="tbl"></div>
+
+  <script>
+    function addC() {
+      document.cookie = document.getElementById("k").value + "=" + document.getElementById("v").value + ";path=/;";
+      show();
+    }
+
+    function getC() {
+      var k = document.getElementById("k").value;
+      var match = document.cookie.match(new RegExp('(^| )' + k + '=([^;]+)'));
+      document.getElementById("out").innerText = match ? "Val: " + match[2] : "Not found";
+    }
+
+    function show() {
+      if (!document.cookie) { document.getElementById("tbl").innerHTML = "None"; return; }
+      var arr = document.cookie.split("; ");
+      var h = "<table border='1'><tr><th>Key</th><th>Value</th></tr>";
+      for (var i = 0; i < arr.length; i++) {
+        var p = arr[i].split("=");
+        h += "<tr><td>" + p[0] + "</td><td>" + (p[1]||'') + "</td></tr>";
+      }
+      document.getElementById("tbl").innerHTML = h + "</table>";
+    }
+
+    function delC() {
+      document.cookie = document.getElementById("k").value + "=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/;";
+      show();
+    }
+
+    function clearC() {
+      var arr = document.cookie.split("; ");
+      for (var i = 0; i < arr.length; i++) {
+        document.cookie = arr[i].split("=")[0] + "=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/;";
+      }
+      show();
+    }
+
+    show();
+  </script>
+</body>
+</html>

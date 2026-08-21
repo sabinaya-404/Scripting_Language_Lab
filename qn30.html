@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    table, td { border: 1px solid black; border-collapse: collapse; padding: 8px; text-align: center; }
+  </style>
+</head>
+<body>
+  <h3>50 Countries (6 per row)</h3>
+  <div id="tableContainer"></div>
+
+  <script>
+    // I dont want to write 50 countries manually, just these countries and make a loop
+    var baseCountries = ["Nepal", "India", "China", "Japan", "Canada", "Germany", "France", "Brazil", "Australia", "UK"];
+    var countries = [];
+
+    
+    for (var k = 0; k < 50; k++) {
+      countries.push(baseCountries[k % baseCountries.length]);
+    }
+
+    var html = "<table>";
+    for (var i = 0; i < countries.length; i += 6) {
+      html += "<tr>";
+      for (var j = i; j < i + 6 && j < countries.length; j++) {
+        html += "<td>" + countries[j] + "</td>";
+      }
+      html += "</tr>";
+    }
+    html += "</table>";
+
+    document.getElementById("tableContainer").innerHTML = html;
+  </script>
+</body>
+</html>

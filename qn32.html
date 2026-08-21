@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .counter-box { text-align: center; width: 200px; border: 2px solid #333; padding: 20px; font-family: sans-serif; }
+    #countVal { font-size: 36px; margin: 15px 0; }
+    button { font-size: 18px; padding: 5px 12px; margin: 0 5px; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <div class="counter-box">
+    <h3>Counter App</h3>
+    <div id="countVal">0</div>
+    <button onclick="changeCount(-1)">-</button>
+    <button onclick="resetCount()">Reset</button>
+    <button onclick="changeCount(1)">+</button>
+  </div>
+
+  <script>
+    var count = 0;
+
+    function changeCount(amount) {
+      count += amount;
+      document.getElementById("countVal").innerText = count;
+    }
+
+    function resetCount() {
+      count = 0;
+      document.getElementById("countVal").innerText = count;
+    }
+  </script>
+</body>
+</html>

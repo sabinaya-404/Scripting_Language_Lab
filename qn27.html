@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+  <h3>DOM Manipulation Tasks</h3>
+  <p id="p1">First Paragraph</p>
+  <p id="p2">Second Paragraph</p>
+  <p id="p3">Third Paragraph</p>
+  <p id="p4">Old Fourth Paragraph</p>
+  <button onclick="performDOMTasks()">Run Manipulation</button>
+  <div id="result"></div>
+
+  <script>
+    function performDOMTasks() {
+     
+      var firstP = document.querySelector('p');
+      
+      var p1 = document.querySelector('#p1');
+      var p2 = document.querySelector('#p2');
+      var p3 = document.querySelector('#p3');
+      var p4 = document.querySelector('#p4');
+      
+      var allP = document.querySelectorAll('p');
+      
+      p4.textContent = "Fourth Paragraph";
+      
+      for (var i = 0; i < allP.length; i++) {
+        allP[i].setAttribute('class', 'para-class-' + (i + 1));
+        allP[i].style.fontSize = "18px";
+        allP[i].style.fontFamily = "Arial";
+        allP[i].style.border = "1px solid gray";
+          
+        if (i === 0 || i === 2) {
+          allP[i].style.color = "green";
+        } else {
+          allP[i].style.color = "red";
+        }
+      }
+      
+      document.getElementById("result").innerText = "DOM Manipulation Complete!";
+    }
+  </script>
+</body>
+</html>

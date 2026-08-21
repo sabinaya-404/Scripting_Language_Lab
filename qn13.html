@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <h3>Join Array Elements</h3>
+  Enter elements (comma-separated): <br>
+  <input type="text" id="inp" placeholder="e.g. Red, Green, White, Black">
+  <button onclick="joinArray()">Join</button>
+
+  <p id="out"></p>
+
+  <script>
+    function joinArray() {
+      var input = document.getElementById("inp").value;
+      if (!input.trim()) {
+        document.getElementById("out").innerText = "Please enter some items!";
+        return;
+      }
+      var arr = input.split(",");
+      for (var i = 0; i < arr.length; i++) {
+        arr[i] = arr[i].trim();
+      }
+      var str1 = arr.join(", ");
+      var str2 = arr.join(" + ");
+
+      document.getElementById("out").innerHTML = 
+        "<b>Joined with comma:</b> " + str1 + "<br>" +
+        "<b>Joined with plus:</b> " + str2;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <h3>Check Even or Odd</h3>
+  <input type="number" id="numInput">
+  <button onclick="runLoop()">Run Check</button>
+  <div id="result"></div>
+
+  <script>
+    function runLoop() {
+      var i = Number(document.getElementById("numInput").value);
+      var output = "";
+      if (i % 2 === 0) {
+        output += i + ' is even<br>';
+      } else {
+        output += i + ' is odd<br>';
+      }
+      document.getElementById("result").innerHTML = output;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+  <h3>Check Blank String</h3>
+  <input type="text" id="strInput" placeholder="Enter text here...">
+  <button onclick="checkBlank()">Check String</button>
+  <div id="result"></div>
+
+  <script>
+    function checkBlank() {
+      var str = document.getElementById("strInput").value;
+      
+      if (str.trim().length === 0) {
+        document.getElementById("result").innerText = "Result: String is Blank";
+      } else {
+        document.getElementById("result").innerText = "Result: String is NOT Blank";
+      }
+    }
+  </script>
+</body>
+</html>

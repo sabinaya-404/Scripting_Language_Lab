@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+  <form onsubmit="return val()">
+
+    Name: <input id="nm"><br>
+
+    Address: <input id="ad"><br>
+
+    Username: <input id="un"><br>
+
+    Email: <input id="em"><br>
+
+    Password: <input type="password" id="pw"><br>
+
+    Website: <input id="ws"><br>
+
+    Phone: <input id="ph"><br>
+
+    Gender: <input type="radio" name="g" value="M"> M
+            <input type="radio" name="g" value="F"> F
+    <br>
+    Course:
+    <select id="cr">
+      <option value="">Select</option>
+      <option value="BCA">BCA</option>
+    </select>
+
+    <br><br>
+
+    <button>Submit</button>
+
+  </form>
+
+
+  <script>
+
+    function val() {
+
+      var nm = document.getElementById("nm").value.trim();
+      var ad = document.getElementById("ad").value.trim();
+      var un = document.getElementById("un").value.trim();
+      var em = document.getElementById("em").value.trim();
+      var pw = document.getElementById("pw").value;
+      var ph = document.getElementById("ph").value.trim();
+
+      var gen = document.querySelector(
+        'input[name="g"]:checked'
+      );
+
+      var cr = document.getElementById("cr").value;
+
+
+      if (!nm || /\d/.test(nm))
+        return err("Invalid Name (no numbers allowed)");
+
+      if (!ad)
+        return err("Address required");
+
+      if (!un || !/^[a-zA-Z0-9_]+$/.test(un))
+        return err("Invalid Username (only letters, numbers, _)");
+
+      if (!em || !em.includes("@"))
+        return err("Invalid Email (must include @)");
+
+      if (
+        !pw ||
+        !/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$/.test(pw)
+      )
+        return err(
+          "Password must be 8+ chars with upper, lower, digit, special char"
+        );
+
+      if (!ph || !/^(98|97|96)\d{8}$/.test(ph))
+        return err("Phone must start with 98/97/96 (10 digits)");
+
+      if (!gen)
+        return err("Select Gender");
+
+      if (!cr)
+        return err("Select Course");
+
+
+      alert("Form submitted successfully!");
+
+      return true;
+    }
+
+
+    function err(m) {
+      alert(m);
+      return false;
+    }
+
+  </script>
+
+</body>
+
+</html>

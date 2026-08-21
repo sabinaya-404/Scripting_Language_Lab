@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+  <h3>Ten Most Frequent Words</h3>
+  <textarea id="textInput" rows="5" cols="40" placeholder="Enter paragraph text here..."></textarea><br>
+  <button onclick="getFrequentWords()">Analyze Words</button>
+  <div id="result"></div>
+
+  <script>
+    function getFrequentWords() {
+      var str = document.getElementById("textInput").value;
+      var words = str.toLowerCase().match(/\w+/g);
+      
+      if (!words) {
+        document.getElementById("result").innerText = "No words found.";
+        return;
+      }
+
+      var counts = {};
+      for (var i = 0; i < words.length; i++) {
+        var w = words[i];
+        counts[w] = (counts[w] || 0) + 1;
+      }
+
+      var sortedWords = Object.keys(counts).sort(function(a, b) {
+        return counts[b] - counts[a];
+      });
+
+      var top10 = sortedWords.slice(0, 10);
+      var output = "<b>Top Words:</b><br>";
+      for (var j = 0; j < top10.length; j++) {
+        output += top10[j] + " : " + counts[top10[j]] + "<br>";
+      }
+
+      document.getElementById("result").innerHTML = output;
+    }
+  </script>
+</body>
+</html>

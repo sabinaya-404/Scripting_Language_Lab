@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+  <div class="wrapper">
+    <h1>Asabeneh Yetayeh challenges in <span id="year">2020</span></h1>
+    <h2>30DaysOfJavaScript Challenge</h2>
+    <div id="datetime" style="padding: 5px; width: 250px; text-align: center;"></div>
+    <ul>
+      <li>Python Challenge Done</li>
+      <li>JavaScript Challenge Ongoing</li>
+      <li>React Challenge Coming</li>
+      <li>FullStack Challenge Coming</li>
+      <li>DataAnalysis Challenge Coming</li>
+      <li>ReactNative Challenge Coming</li>
+      <li>MachineLearning Challenge Coming</li>
+    </ul>
+  </div>
+
+  <script>
+    function getRandomColor() {
+      var letters = "0123456789ABCDEF";
+      var color = "#";
+      for (var i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+      }
+      return color;
+    }
+
+    setInterval(function() {
+      document.getElementById("year").style.color = getRandomColor();
+    }, 1000);
+// I messed this up in my lab report, shit
+   
+    setInterval(function() {
+      var dt = document.getElementById("datetime");
+      dt.innerText = new Date().toLocaleString();
+      dt.style.backgroundColor = getRandomColor();
+    }, 1000);
+
+   
+    var items = document.querySelectorAll("li");
+    for (var i = 0; i < items.length; i++) {
+      var text = items[i].innerText;
+      items[i].style.listStyleType = "none";
+      items[i].style.margin = "5px";
+      items[i].style.padding = "10px";
+      
+      if (text.includes("Done")) {
+        items[i].style.backgroundColor = "green";
+      } else if (text.includes("Ongoing")) {
+        items[i].style.backgroundColor = "yellow";
+      } else if (text.includes("Coming")) {
+        items[i].style.backgroundColor = "red";
+      }
+    }
+  </script>
+</body>
+</html>

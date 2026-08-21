@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    #container { display: flex; flex-wrap: wrap; width: 450px; }
+    .box { width: 35px; height: 35px; margin: 2px; text-align: center; line-height: 35px; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h3>Numbers 0 to 100 Color Grid</h3>
+  <div id="container"></div>
+
+  <script>
+    function isPrime(num) {
+      if (num < 2) return false;
+      for (var i = 2; i <= Math.sqrt(num); i++) {
+        if (num % i === 0) return false;
+      }
+      return true;
+    }
+
+    var container = document.getElementById("container");
+
+    for (var i = 0; i <= 100; i++) {
+      var div = document.createElement("div");
+      div.className = "box";
+      div.innerText = i;
+
+      if (isPrime(i)) {
+        div.style.backgroundColor = "red";
+      } else if (i % 2 === 0) {
+        div.style.backgroundColor = "green";
+      } else {
+        div.style.backgroundColor = "yellow";
+      }
+
+      container.appendChild(div);
+    }
+  </script>
+</body>
+</html>

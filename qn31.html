@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    #container { display: flex; flex-wrap: wrap; width: 450px; margin-top: 10px; }
+    .box { width: 35px; height: 35px; margin: 2px; text-align: center; line-height: 35px; font-weight: bold; color: white; }
+  </style>
+</head>
+<body>
+  <h3>Dynamic Number Color Grid</h3>
+  <input type="number" id="limitInput" placeholder="Enter max number (e.g. 50)">
+  <button onclick="generateGrid()">Generate</button>
+  <div id="container"></div>
+
+  <script>
+    function isPrime(n) {
+      if (n < 2) return false;
+      for (var i = 2; i <= Math.sqrt(n); i++) {
+        if (n % i === 0) return false;
+      }
+      return true;
+    }
+
+    function generateGrid() {
+      var limit = Number(document.getElementById("limitInput").value);
+      var container = document.getElementById("container");
+      container.innerHTML = "";
+
+      for (var i = 1; i <= limit; i++) {
+        var div = document.createElement("div");
+        div.className = "box";
+        div.innerText = i;
+
+        if (isPrime(i)) {
+          div.style.backgroundColor = "red";
+        } else if (i % 2 === 0) {
+          div.style.backgroundColor = "green";
+        } else {
+          div.style.backgroundColor = "gold";
+        }
+
+        container.appendChild(div);
+      }
+    }
+  </script>
+</body>
+</html>

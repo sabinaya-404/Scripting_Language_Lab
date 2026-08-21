@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    table, th, td { border: 1px solid black; border-collapse: collapse; padding: 8px; }
+    .trash-btn { cursor: pointer; color: red; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h3>Table Row Management</h3>
+  <button onclick="addRow()">Add New</button><br><br>
+
+  <table id="myTable">
+    <thead>
+      <tr><th>Item</th><th>Action</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Sample Row</td>
+        <td><span class="trash-btn" onclick="removeRow(this)">Delete</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <script>
+    
+    function addRow() {
+      var tbody = document.querySelector("#myTable tbody");
+      var lastRow = tbody.lastElementChild;
+      var newRow = lastRow.cloneNode(true);
+      tbody.appendChild(newRow);
+    }
+
+    
+    function removeRow(btn) {
+      var tbody = document.querySelector("#myTable tbody");
+      if (tbody.children.length > 1) {
+        btn.closest("tr").remove();
+      } else {
+        alert("Cannot delete the last remaining row!");
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <h3>Remove Specified Characters</h3>
+  <input type="text" id="textInput" placeholder="Enter full string">
+  <input type="number" id="countInput" placeholder="Num of chars to remove">
+  <button onclick="processRemove()">Truncate</button>
+  <div id="result"></div>
+
+  <script>
+    function processRemove() {
+      var str = document.getElementById("textInput").value;
+      var count = Number(document.getElementById("countInput").value);
+      
+      var slicedStr = str.slice(count);
+      document.getElementById("result").innerText = "Result: " + slicedStr;
+    }
+  </script>
+</body>
+</html>

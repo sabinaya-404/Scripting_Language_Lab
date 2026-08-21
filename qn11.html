@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <h3>Find Smaller Number</h3>
+  <input type="text" id="numbersInput" placeholder="Enter numbers (e.g. 5,2,9,1)">
+  <button onclick="getSmaller()">Find Smaller</button>
+  <div id="result"></div>
+
+  <script>
+    function getSmaller() {
+      var input = document.getElementById("numbersInput").value;
+      var arr = input.split(",");
+      
+      for (var i = 0; i < arr.length; i++) {
+        arr[i] = Number(arr[i]);
+      }
+      
+      var minVal = Math.min(...arr);
+      document.getElementById("result").innerText = "Smaller: " + minVal;
+    }
+  </script>
+</body>
+</html>
