@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h2>Current Date Formats</h2>
+    <div id="output"></div>
+
+    <script>
+        let today = new Date();
+        let dd = String(today.getDate()).padStart(2, '0');
+        let mm = String(today.getMonth() + 1).padStart(2, '0');
+        let yyyy = today.getFullYear();
+        let monthName = today.toLocaleString('default', { month: 'long' });
+        let dayName = today.toLocaleString('default', { weekday: 'long' });
+
+        let result = `
+            <p>MM-DD-YYYY: ${mm}-${dd}-${yyyy}</p>
+            <p>MM/DD/YYYY: ${mm}/${dd}/${yyyy}</p>
+            <p>DD-MM-YYYY: ${dd}-${mm}-${yyyy}</p>
+            <p>DD/MM/YYYY: ${dd}/${mm}/${yyyy}</p>
+            <p>YYYY Month Date Day: ${yyyy} ${monthName} ${dd} ${dayName}</p>
+        `;
+
+        document.getElementById("output").innerHTML = result;
+    </script>
+</body>
+</html>

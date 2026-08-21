@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h3 id="original"></h3>
+    <h3 id="result"></h3>
+
+    <script>
+        function sortWord(str) {
+            return str.split('').sort().join('');
+        }
+
+        let originalStr = 'webmaster';
+        document.getElementById('original').innerText = "Original String: " + originalStr;
+        document.getElementById('result').innerText = "Sorted Output: " + sortWord(originalStr);
+    </script>
+</body>
+</html>
