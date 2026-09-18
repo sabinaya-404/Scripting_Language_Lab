@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>BCA Description</h2>
+
+<button onclick="loadData()">Show Content</button>
+
+<p id="result"></p>
+
+<script>
+function loadData() {
+    let xhr = new XMLHttpRequest();
+
+    xhr.open("GET", "q15bca.txt", true);
+
+    xhr.onload = function() {
+        document.getElementById("result").innerText = xhr.responseText;
+    };
+
+    xhr.send();
+}
+</script>
+
+</body>
+</html>
